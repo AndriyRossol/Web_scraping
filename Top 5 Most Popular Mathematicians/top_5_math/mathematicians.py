@@ -26,9 +26,9 @@ from bs4 import BeautifulSoup
 
 import json
 import csv
+import sys
 
 ARTICLEINFO           = 'articleinfo'
-CSE_ID                = '011590627814582530041:6cbudm9bdzm'
 MATH_MEN_URL          = 'http://www.fabpedigree.com/james/mathmen.htm'
 PAGE_API_ROOT_URL     = 'https://xtools.wmflabs.org/api/page'
 WIKIPEDIA_ROOT_URL    = 'en.wikipedia.org/{}'
@@ -131,7 +131,7 @@ def get_hits_on_name(name):
 
             # if not found by wikipedia, search wikipedia article in google   
             if 'error' in data:
-                response = google_api.search_wikipedia_article(name, CSE_ID)
+                response = google_api.search_wikipedia_article(name, sys.argv[1], sys.argv[2])
                 articleinfo = get_article_info(
                         WIKIPEDIA_ROOT_URL.format(
                                 response['items'][0]['formattedUrl'].split('/')[-1]
