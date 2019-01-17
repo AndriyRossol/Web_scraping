@@ -18,7 +18,7 @@ from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 
-URL = "https://en.wikipedia.org/w/api.php"
+WIKIPEDIA_API_URL = "https://en.wikipedia.org/w/api.php"
 
 def search_title(searchpage):
     
@@ -30,11 +30,11 @@ def search_title(searchpage):
             }
 
     try:
-        with closing(get(url=URL, params=PARAMS)) as response:
+        with closing(get(url=WIKIPEDIA_API_URL, params=PARAMS)) as response:
             json_data = response.json()
         
     except RequestException as e:
-        log_error('Error during requests to {0} : {1}'.format(URL, str(e)))
+        log_error('Error during requests to {0} : {1}'.format(WIKIPEDIA_API_URL, str(e)))
         return None
     
     return json_data

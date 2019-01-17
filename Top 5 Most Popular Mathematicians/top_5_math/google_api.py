@@ -15,8 +15,6 @@
 
 from googleapiclient.discovery import build
 
-URL = "https://en.wikipedia.org/w/api.php"
-
 def search_wikipedia_article(query, cse_id, api_key):
     
     service = build("customsearch", "v1", developerKey=api_key)

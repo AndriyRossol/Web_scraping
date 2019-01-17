@@ -84,7 +84,7 @@ def get_names():
         fix_dict = {rows[0]:rows[1] for rows in reader}    
 
     """
-    Downloads the page where the list of mathematicians is found
+    Download the page where the list of mathematicians is found
     and returns a list of strings, one per mathematician
     """
     math_men_response = simple_get(MATH_MEN_URL)
